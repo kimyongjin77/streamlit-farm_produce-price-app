@@ -22,7 +22,7 @@ elif platform.system() == 'Windows':
     rc('font', family=font_name)
 elif platform.system() == 'Linux':
     #matplotlib의 폰트를 Nanum 폰트로 지정합니다.
-    path = "/usr/share/fonts/nanum/NanumGothic.ttf"
+    path = '/usr/share/fonts/nanum/NanumGothic.ttf'
     font_name = font_manager.FontProperties(fname=path).get_name()
     rc('font', family=font_name)
 else:

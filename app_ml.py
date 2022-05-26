@@ -8,6 +8,12 @@ from fbprophet import Prophet
 from fbprophet.plot import plot_plotly
 from plotly import graph_objs as go
 
+if 'user_name' not in st.session_state:
+    st.session_state['user_name'] = ''
+
+if 'user_name' in st.session_state:
+    del st.session_state['user_name']
+
 def run_ml():
     #pass
     st.subheader('Facebook Prophet을 이용한 평균가격 예측')
@@ -17,7 +23,7 @@ def run_ml():
                        '예) 상추가 데이터가 제일 많으며, 2008년~2019년도 사이의 데이터건수가 비슷하다.')
 
     df = pd.read_csv('data/price_20210916.csv', index_col=0)
-    
+
     #st.dataframe(df)
     item_list=sorted(df['품목명'].unique())
     choice_item=st.selectbox('예측 품목 선택', item_list)
