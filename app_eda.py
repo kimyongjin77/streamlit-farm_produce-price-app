@@ -11,6 +11,8 @@ from matplotlib import font_manager, rc
 from app_ml import run_ml
 
 print('This System=' + platform.system())
+print('This System=' + platform.platform())
+
 plt.rcParams['axes.unicode_minus'] = False
 if platform.system() == 'Darwin':
     rc('font', family='AppleGothic')
