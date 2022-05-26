@@ -10,6 +10,7 @@ from matplotlib import font_manager, rc
 
 from app_ml import run_ml
 
+print('This System=' + platform.system())
 plt.rcParams['axes.unicode_minus'] = False
 if platform.system() == 'Darwin':
     rc('font', family='AppleGothic')
@@ -18,7 +19,7 @@ elif platform.system() == 'Windows':
     font_name = font_manager.FontProperties(fname=path).get_name()
     rc('font', family=font_name)
 else:
-    print('Unknown system... sorry~~~~')
+    print('This System=' + platform.system() + ' Unknown system... sorry~~~~')
 
 def run_eda():
     #pass
