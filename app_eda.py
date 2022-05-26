@@ -28,7 +28,8 @@ def run_eda():
     st.text('친환경 농산물 가격정보에 대한 데이터')
 
     st.subheader('친환경(유기농, 무농약) 농산물(21년 기준) 소매가격 정보')
-    df = pd.read_csv('data\price_20210916.csv', index_col=0)
+    
+    df = pd.read_csv('data/price_20210916.csv', index_col=0)
     st.dataframe(df)
 
     st.subheader('EDA')
