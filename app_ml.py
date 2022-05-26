@@ -17,6 +17,7 @@ def run_ml():
                        '예) 상추가 데이터가 제일 많으며, 2008년~2019년도 사이의 데이터건수가 비슷하다.')
 
     df = pd.read_csv('data/price_20210916.csv', index_col=0)
+    
     #st.dataframe(df)
     item_list=sorted(df['품목명'].unique())
     choice_item=st.selectbox('예측 품목 선택', item_list)
