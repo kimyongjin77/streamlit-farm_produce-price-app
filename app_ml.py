@@ -16,7 +16,7 @@ def run_ml():
                        '2.일자(년도)별 데이터수가 균일해야 한다.\n' +
                        '예) 상추가 데이터가 제일 많으며, 2008년~2019년도 사이의 데이터건수가 비슷하다.')
 
-    df = pd.read_csv('data\price_20210916.csv', index_col=0)
+    df = pd.read_csv('data/price_20210916.csv', index_col=0)
     #st.dataframe(df)
     item_list=sorted(df['품목명'].unique())
     choice_item=st.selectbox('예측 품목 선택', item_list)
