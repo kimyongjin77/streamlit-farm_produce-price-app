@@ -1,3 +1,4 @@
+from matplotlib import container
 import streamlit as st
 
 import pandas as pd  
@@ -25,11 +26,16 @@ def run_ml():
     df = pd.read_csv('data/price_20210916.csv', index_col=0)
 
     #st.dataframe(df)
-    item_list=sorted(df['품목명'].unique())
-    choice_item=st.selectbox('예측 품목 선택', item_list)
-    year_list=sorted(df.loc[ (df['품목명']==choice_item),'가격등록년도'].unique())
-    choice_from_year=st.selectbox('From 가격등록년도 학습 데이터 선택', year_list)
-    choice_to_year=st.selectbox('To 가격등록년도 학습 데이터 선택',year_list)
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        item_list=sorted(df['품목명'].unique())
+        choice_item=st.selectbox('예측 품목 선택', item_list)
+        year_list=sorted(df.loc[ (df['품목명']==choice_item),'가격등록년도'].unique())
+    with col2:
+        choice_from_year=st.selectbox('From 가격등록년도 학습 데이터 선택', year_list)
+    with col3:
+        choice_to_year=st.selectbox('To 가격등록년도 학습 데이터 선택',year_list)
+    
     n_years = st.slider('예측 년수:',1,4,1)
     n_days_period = n_years * 365
 
@@ -53,9 +59,10 @@ def run_ml():
             st.subheader(choice_item + ' ' + str(choice_from_year) + '~' + str(choice_to_year) + '년도 데이터로 예측 ' + str(n_years) + '년 그래프')
             fig1 = plot_plotly(prophet, forecast)
             st.plotly_chart(fig1)
-
+            
             st.subheader(f'예측 components')
             fig2=prophet.plot_components(forecast)
             st.write(fig2)
+
         else:
             st.error('From가격등록년도가 To가격등록년도 보다 클 수 없습니다.')
