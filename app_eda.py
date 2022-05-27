@@ -31,9 +31,10 @@ else:
 def run_eda():
     #pass
     st.header('한국농수산식품유통공사_친환경농산물 소매가격정보')
-    st.text('친환경 농산물 가격정보에 대한 데이터 출처 공공데이터포털')
+    
     link='[공공데이터포털](https://www.data.go.kr/data/15071816/fileData.do?recommendDataYn=Y)'
-    st.markdown(link, unsafe_allow_html=True)
+    #st.markdown(link, unsafe_allow_html=True)
+    st.write(f'친환경 농산물 가격정보에 대한 데이터 출처 : ' + link)
 
     st.subheader('친환경(유기농, 무농약) 농산물(21년 기준) 소매가격 정보')
     df = pd.read_csv('data/price_20210916.csv', index_col=0)
