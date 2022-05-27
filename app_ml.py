@@ -50,11 +50,11 @@ def run_ml():
             forecast=prophet.predict(future)
             txt_info.info('예측 완료.')
 
-            st.subheader('예측 ' + str(n_years) + '년 그래프')
+            st.subheader(choice_item + ' ' + str(choice_from_year) + '~' + str(choice_to_year) + '년도 데이터로 예측 ' + str(n_years) + '년 그래프')
             fig1 = plot_plotly(prophet, forecast)
             st.plotly_chart(fig1)
 
-            st.subheader('예측 components')
+            st.subheader(f'예측 components')
             fig2=prophet.plot_components(forecast)
             st.write(fig2)
         else:
