@@ -6,7 +6,6 @@ st.set_page_config(
    page_title='친환경농산물 소매가격 예측',
    page_icon='data/icon.png',
    layout='centered',
-   #layout='wide',
    initial_sidebar_state='expanded'
 )
 

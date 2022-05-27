@@ -34,7 +34,6 @@ def run_ml():
     n_days_period = n_years * 365
 
     submitted = st.button(label='실행')
-
     if submitted:
         if choice_to_year >= choice_from_year: 
             txt_info=st.info('학습데이터 추출 중입니다. 잠시 기다려 주세요...')

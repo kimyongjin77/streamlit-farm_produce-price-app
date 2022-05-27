@@ -38,6 +38,7 @@ def run_eda():
     st.markdown('---')
 
     st.subheader('친환경(유기농, 무농약) 농산물(21년 기준) 소매가격 데이터')
+    
     df = pd.read_csv('data/price_20210916.csv', index_col=0)
     st.dataframe(df)
 
