@@ -30,6 +30,7 @@ else:
 
 def run_eda():
     #pass
+    
     st.header('한국농수산식품유통공사_친환경농산물 소매가격정보')
     
     link='[공공데이터포털](https://www.data.go.kr/data/15071816/fileData.do?recommendDataYn=Y)'
